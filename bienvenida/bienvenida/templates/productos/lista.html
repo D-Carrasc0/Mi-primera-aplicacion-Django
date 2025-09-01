@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title>Lista de Productos</title> 
+    </head>
+
+    <body>
+        <!-- productos.html -->
+        <h1>Nuestros Productos</h1>
+        <ul>
+        {% for producto in productos %}
+            <li>
+            {{ producto.nombre }} - {{ producto.precio }} - {{ producto.descripcion }} - Stock: {{ producto.stock }}
+            {% if producto.stock == 0 %}
+            <span style="color: red;"> (Agotado)</span>
+            {% endif %}
+            </li>
+            {% empty %}
+            <li>No hay productos disponibles.</li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>
